@@ -1,0 +1,19 @@
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\bin\Debug\gen.exe.config
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\bin\Debug\gen.exe
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\bin\Debug\gen.pdb
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.csprojResolveAssemblyReference.cache
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\MainWindow.baml
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\MainWindow.g.cs
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\App.g.cs
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen_MarkupCompile.cache
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.g.resources
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.Properties.Resources.resources
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.csproj.GenerateResource.Cache
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.exe
+c:\users\rohit\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.pdb
+C:\Users\ROHIT\documents\visual studio 2012\Projects\gen\gen\obj\Debug\Duplicate Code.baml
+C:\Users\ROHIT\documents\visual studio 2012\Projects\gen\gen\obj\Debug\Duplicate Code.g.cs
+C:\Users\ROHIT\documents\visual studio 2012\Projects\gen\gen\bin\Debug\gen.exe.manifest
+C:\Users\ROHIT\documents\visual studio 2012\Projects\gen\gen\bin\Debug\gen.application
+C:\Users\ROHIT\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.exe.manifest
+C:\Users\ROHIT\documents\visual studio 2012\Projects\gen\gen\obj\Debug\gen.application

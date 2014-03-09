@@ -1,0 +1,16 @@
+﻿<Window x:Class="gen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Minimum Code" Height="300" Width="412.456" Closing="Window_Closing">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="27,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="226" TextChanged="TextBox_TextChanged" Name="nev" DragEnter="nev_DragEnter"/>
+        <Button x:Name="bfile" Content="select files" HorizontalAlignment="Left" Margin="27,115,0,0" VerticalAlignment="Top" Width="92" Click="Button_Click"/>
+        <Button x:Name="bdict" Content="select directory" HorizontalAlignment="Left" Margin="164,115,0,0" VerticalAlignment="Top" Width="108" Click="Button_Click_1"/>
+        <Button x:Name="search" Content="search" HorizontalAlignment="Left" Margin="309,239,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_2"/>
+        <Label x:Name="label1" Content="minimum lines you want to exact same" HorizontalAlignment="Left" Margin="27,176,0,0" VerticalAlignment="Top" Width="226"/>
+        <TextBox x:Name="lns" HorizontalAlignment="Left" Height="23" Margin="274,179,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="lns_TextChanged"/>
+        <Label x:Name="pro" Content="processing....." HorizontalAlignment="Left" Margin="102,152,0,0" VerticalAlignment="Top" Width="135"/>
+        <StatusBar Name="sbar" HorizontalAlignment="Left" Height="21" Margin="68,69,0,0" VerticalAlignment="Top" Width="257" />
+
+    </Grid>
+</Window>
