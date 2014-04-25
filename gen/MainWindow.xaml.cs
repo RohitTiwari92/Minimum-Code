@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,13 +32,13 @@ namespace gen
             nev.Text = "";
             lns.Text = "";
             pro.Visibility = System.Windows.Visibility.Collapsed;
-           sbar.Visibility = System.Windows.Visibility.Collapsed;
+            sbar.Visibility = System.Windows.Visibility.Collapsed;
            // dg.Visibility = System.Windows.Visibility.Collapsed;
         }
 
 
-
-       public string[] path;
+        List<string> pathg = new List<string>();
+       public  string[] path;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
@@ -47,18 +47,23 @@ namespace gen
             ofd.Multiselect = true;
             // Show the dialog and get result.
             DialogResult result = ofd.ShowDialog();
-            Console.WriteLine(result);
+           // Console.WriteLine(result);
 
             if (result.ToString() == "OK") // Test result.
             {
+                bfile.Content = "add more file";
+                bfile.Width = 110;
                 path = ofd.FileNames;
+               // Console.WriteLine(path[0]);
                 FileInfo x = new FileInfo(path[0]);
                 DirectoryInfo dir = x.Directory;
                 nev.Text = dir.ToString();
-               
-               
-
-               
+                foreach (string s in path)
+                {
+                   // Console.WriteLine(s);
+                    pathg.Add(s);
+                }
+   
             }
             
 
@@ -77,6 +82,8 @@ namespace gen
 
             if (result.ToString() == "OK")
             {
+                bdict.Content = "Add more Directory";
+                bdict.Width = 110;
                 pathf = folderDialog.SelectedPath;
                 nev.Text = pathf;
                // string[] p = Directory.GetFiles(@pathf, "*.*", SearchOption.AllDirectories);
@@ -84,7 +91,11 @@ namespace gen
 
                 path = Directory.GetFiles(@pathf, "*.*", SearchOption.AllDirectories)
                     .Where(f => extensions.Contains(f.Split('.').Last().ToLower())).ToArray();
-                
+                foreach (string s in path)
+                {
+                   // Console.WriteLine(s);
+                    pathg.Add(s);
+                }
 
                 
                }
@@ -92,39 +103,36 @@ namespace gen
 
         }
 
-        public class AutoClosingMessageBox
-        {
-            System.Threading.Timer _timeoutTimer;
-            string _caption;
-            AutoClosingMessageBox(string text, string caption, int timeout)
-            {
-                _caption = caption;
-                _timeoutTimer = new System.Threading.Timer(OnTimerElapsed,
-                    null, timeout, System.Threading.Timeout.Infinite);
-              System.Windows.MessageBox.Show(text, caption);
-            }
-            public static void Show(string text, string caption, int timeout)
-            {
-                new AutoClosingMessageBox(text, caption, timeout);
-            }
-            void OnTimerElapsed(object state)
-            {
-                IntPtr mbWnd = FindWindow(null, _caption);
-                if (mbWnd != IntPtr.Zero)
-                    SendMessage(mbWnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
-                _timeoutTimer.Dispose();
-            }
-            const int WM_CLOSE = 0x0010;
-            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-            static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-            [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-            static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
-        }
+       public class AutoClosingMessageBox
+       {
+           System.Threading.Timer _timeoutTimer;
+           string _caption;
+           AutoClosingMessageBox(string text, string caption, int timeout)
+           {
+               _caption = caption;
+               _timeoutTimer = new System.Threading.Timer(OnTimerElapsed, null, timeout, System.Threading.Timeout.Infinite);
+               System.Windows.MessageBox.Show(text, caption);
+           }
+           public static void Show(string text, string caption, int timeout)
+           {
+               new AutoClosingMessageBox(text, caption, timeout);
+           }
+           void OnTimerElapsed(object state)
+           {
+               IntPtr mbWnd = FindWindow(null, _caption);
+               if (mbWnd != IntPtr.Zero)
+                   SendMessage(mbWnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+               _timeoutTimer.Dispose();
+           }
+           const int WM_CLOSE = 0x0010;
+           [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+           static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+           [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+           static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+       }
 
         int i;
-        Thread t;
-        Thread tp;
-        //async
+    
         private async void Button_Click_2(object sender, RoutedEventArgs e)
         {
             if (!lns.Text.Equals("") && !nev.Text.Equals(""))
@@ -147,12 +155,12 @@ namespace gen
 
                AutoClosingMessageBox.Show("Prosses Start", "Info", 1000);
                 i = Convert.ToInt16(lns.Text);
-                t = new Thread(tbp);
+             //   t = new Thread(tbp);
 
                    
                 
 
-                t.Name = "backprocess";
+             //   t.Name = "backprocess";
               
                // t.Start();
               
@@ -181,8 +189,12 @@ namespace gen
            // Thread ts = new Thread(MakeOne);
            // ts.Start();
             read a = new read();
+            pathg = pathg.Distinct().ToList();
+        
+            string[] de=pathg.ToArray();
+            pathg.Clear();
             // Thread t1=new Thread(new ThreadStart(new (a.readfile(ref path,i))));
-            a.readfile(ref path, i);
+            a.readfile(ref de, i);
         }
 
         private  void MakeOne()
